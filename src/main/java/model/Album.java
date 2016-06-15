@@ -8,6 +8,7 @@ import java.util.List;
  * Created by alexandermiheev on 13.06.16.
  */
 public class Album {
+
     private String albumName;
     private String albumGenre;
     private List<Track> albumTracks;
@@ -23,6 +24,7 @@ public class Album {
         this.albumGenre = "Various album genre";
         this.albumTracks = new ArrayList<>();
     }
+
 
     public Integer getAlbumLengthInSeconds() {
         int resultLength = 0;

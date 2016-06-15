@@ -1,5 +1,6 @@
 package dao.impl;
 
+import org.apache.log4j.Logger;
 import dao.ArtistDAO;
 import model.Album;
 import model.Artist;
@@ -16,6 +17,8 @@ import java.util.List;
  * Created by alexandermiheev on 13.06.16.
  */
 public class ArtistDAOImpl implements ArtistDAO {
+
+    private static final Logger logger = Logger.getLogger(ArtistDAOImpl.class);
 
     private static final String FILE_NAME = "data.txt";
     private static Catalogue catalogue;
@@ -71,6 +74,7 @@ public class ArtistDAOImpl implements ArtistDAO {
             File inputFile = new File(FILE_NAME);
 
             catalogue = (Catalogue) unmarshaller.unmarshal(inputFile);
+            logger.info("Download data from data.txt");
 
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
@@ -87,7 +91,7 @@ public class ArtistDAOImpl implements ArtistDAO {
             File outputFile = new File(FILE_NAME);
 
             marshaller.marshal(catalogue, outputFile);
-
+            logger.info("Save data to data.txt");
 
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());

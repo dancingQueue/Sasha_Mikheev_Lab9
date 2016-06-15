@@ -20,7 +20,7 @@ public class Artist {
         this.albumList = new ArrayList<>();
     }
 
-    public Integer getSummaryTrackLength() {
+    public int getSummaryTrackLength() {
         int resultTrackLength = 0;
 
         for (Album album: albumList) {
